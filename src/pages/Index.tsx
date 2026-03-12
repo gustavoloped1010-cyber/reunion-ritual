@@ -37,7 +37,7 @@ const Index = () => {
       <div className="max-w-[600px] text-center mb-6">
         <p className="text-foreground text-base md:text-lg leading-relaxed">
           Descubra como fazer ele sentir saudade, ir atrás de você e implorar pra voltar -{" "}
-          <span className="font-bold" style={{ color: "hsl(var(--highlight))" }}>
+          <span className="font-bold text-highlight">
             sem parecer desesperada ou correr atrás dele.
           </span>
         </p>
