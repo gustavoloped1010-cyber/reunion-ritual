@@ -3,9 +3,20 @@ import { useEffect, useState, useRef } from "react";
 const Index = () => {
   const [showButton, setShowButton] = useState(false);
   const [viewerCount, setViewerCount] = useState(0);
+  const [urgencyDate, setUrgencyDate] = useState("");
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
+    // Set urgency date to 3 days from now
+    const futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 3);
+    const formattedDate = futureDate.toLocaleDateString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+    setUrgencyDate(formattedDate);
+
     // Random viewer count between 90 and 150
     setViewerCount(Math.floor(Math.random() * 61) + 90);
     const interval = setInterval(() => {
@@ -30,7 +41,7 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col items-center px-4 py-6">
       {/* Warning */}
       <p className="text-sm font-bold mb-6 text-warning">
-        ⚠️ Este conteúdo ficará no ar até 12/03/2026 ⚠️
+        ⚠️ Este conteúdo ficará no ar até {urgencyDate} ⚠️
       </p>
 
       {/* Headline */}
