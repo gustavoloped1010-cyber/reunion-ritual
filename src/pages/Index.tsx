@@ -61,7 +61,7 @@ const Index = () => {
 
       {/* Viewer count */}
       <p className="text-sm text-foreground mb-6">
-        <span className="font-bold" style={{ color: "hsl(var(--highlight))" }}>
+        <span className="font-bold text-highlight">
           {viewerCount}
         </span>{" "}
         pessoas estão assistindo a esse vídeo agora.
