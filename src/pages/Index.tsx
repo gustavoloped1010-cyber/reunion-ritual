@@ -29,7 +29,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center px-4 py-6">
       {/* Warning */}
-      <p className="text-sm font-bold mb-6" style={{ color: "hsl(var(--warning))" }}>
+      <p className="text-sm font-bold mb-6 text-warning">
         ⚠️ Este conteúdo ficará no ar até 12/03/2026 ⚠️
       </p>
 
