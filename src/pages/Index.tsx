@@ -58,13 +58,22 @@ const Index = () => {
       </div>
 
       {/* VSL Embed */}
-      <div className="w-full max-w-[400px] mb-4">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `<vturb-smartplayer id="vid-69c0343c237e0fc6aec17a2d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>`
-          }}
-        />
-      </div>
+      <div className="w-full max-w-[400px] mb-4" ref={(el) => {
+        if (el && !el.querySelector('vturb-smartplayer')) {
+          const player = document.createElement('vturb-smartplayer');
+          player.id = 'vid-69c0343c237e0fc6aec17a2d';
+          player.style.cssText = 'display: block; margin: 0 auto; width: 100%; max-width: 400px;';
+          el.appendChild(player);
+          
+          // Load player script after element is in DOM
+          if (!document.querySelector('script[src*="69c0343c237e0fc6aec17a2d"]')) {
+            const s = document.createElement('script');
+            s.src = 'https://scripts.converteai.net/d7411129-fc8f-44b1-9e2a-1fc19ed63689/players/69c0343c237e0fc6aec17a2d/v4/player.js';
+            s.async = true;
+            document.head.appendChild(s);
+          }
+        }
+      }} />
 
       {/* Viewer count */}
       <p className="text-sm text-foreground mb-6">
