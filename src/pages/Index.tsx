@@ -59,15 +59,11 @@ const Index = () => {
 
       {/* VSL Embed */}
       <div className="w-full max-w-[400px] mb-4">
-        <div style={{ position: "relative", paddingTop: "177.78%" }}>
-          <iframe
-            frameBorder="0"
-            allowFullScreen
-            src="https://scripts.converteai.net/d7411129-fc8f-44b1-9e2a-1fc19ed63689/players/69b2e3a5005f4e6dada80b76/v4/embed.html"
-            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-            referrerPolicy="origin"
-          />
-        </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `<vturb-smartplayer id="vid-69c0343c237e0fc6aec17a2d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>`
+          }}
+        />
       </div>
 
       {/* Viewer count */}
