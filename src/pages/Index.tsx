@@ -58,13 +58,14 @@ const Index = () => {
       </div>
 
       {/* VSL Embed */}
-      <div className="w-full max-w-[400px] mb-4">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `<vturb-smartplayer id="vid-69c0343c237e0fc6aec17a2d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>`
-          }}
-        />
-      </div>
+      <div className="w-full max-w-[400px] mb-4" ref={(el) => {
+        if (el && !el.querySelector('vturb-smartplayer')) {
+          const player = document.createElement('vturb-smartplayer');
+          player.id = 'vid-69c0343c237e0fc6aec17a2d';
+          player.style.cssText = 'display: block; margin: 0 auto; width: 100%; max-width: 400px;';
+          el.appendChild(player);
+        }
+      }} />
 
       {/* Viewer count */}
       <p className="text-sm text-foreground mb-6">
